@@ -8,7 +8,7 @@ setup(
     description="The zero-effort daily standup & timesheet ghostwriter powered by Gemma.",
     long_description=open("README.md").read() if open("README.md") else "",
     long_description_content_type="text/markdown",
-    url="https://github.com/Nl-t-lN/slothstandup",
+    url="https://github.com/Nl-T-lN/slothstandup",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

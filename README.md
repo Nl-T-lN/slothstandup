@@ -55,7 +55,7 @@ flowchart LR
 
 ```bash
 # Clone the repository
-git clone https://github.com/Nl-t-lN/slothstandup.git
+git clone https://github.com/Nl-T-lN/slothstandup.git
 cd slothstandup
 
 # Install dependencies

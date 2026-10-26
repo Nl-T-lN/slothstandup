@@ -1,3 +1,4 @@
+# Python bytecode and build artifacts
 __pycache__/
 *.py[cod]
 *$py.class
@@ -8,3 +9,31 @@ build/
 env/
 .pytest_cache/
 .DS_Store
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# AI, Agentic workflows & Vibe-coding artifacts
+work.md
+work.*
+prompts/
+*.prompt
+*.prompt.md
+.cursor/
+.cursorrules
+.windsurf/
+.windsurfrules
+.gemini/
+.claude/
+.clauderules
+.antigravity/
+.ai/
+agent_sessions/
+transcripts/
+transcript*.jsonl
+scratch/
+brain/
+*.scratch.*

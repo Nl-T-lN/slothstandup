@@ -89,7 +89,7 @@ Now close your laptop and take a nap. You've earned it.
 
 The code is fully open-source under the MIT License on GitHub:
 
-🔗 **GitHub Repository:** [https://github.com/Nl-t-lN/slothstandup](https://github.com/Nl-t-lN/slothstandup)
+🔗 **GitHub Repository:** [https://github.com/Nl-T-lN/slothstandup](https://github.com/Nl-T-lN/slothstandup)
 
 Key components:
 
