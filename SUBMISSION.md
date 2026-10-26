@@ -4,17 +4,19 @@
 
 ## What I Built
 
-Tomorrow, October 20, is **International Sloth Day**. Sloths have life figured out: they sleep 15 to 20 hours a day, move at an average speed of 0.15 mph, and never exert energy unless it is strictly necessary for survival.
+October 20, is **International Sloth Day**. Sloths have life figured out, they sleep 15 to 20 hours a day, move at an average speed of 0.15 mph, and never exert energy unless it is strictly necessary for survival.
 
 Meanwhile, in modern software engineering, developers endure a daily morning ordeal:
+
 1. Staring at an empty Slack message box at 9:55 AM before the 10:00 AM standup.
 2. Agonizing over *"What on earth did I actually commit yesterday?"*
 3. Translating *"I spent 4 hours fixing an obscure merge conflict and chasing a missing semicolon"* into corporate-friendly prose like *"Refactored build configuration and resolved distributed dependency synchronization issues."*
 4. Filling out a tedious timesheet to justify 8 hours of work to accounting.
 
-To honor International Sloth Day and channel my inner sloth, I built **SlothStandup** 🦥. 
+To honor International Sloth Day and channel my inner sloth, I built **SlothStandup** 🦥.
 
 **SlothStandup** is a 100% private, on-device CLI assistant that automatically crawls your local Git repositories, analyzes your recent commits, branch diffs, and staged changes, and uses Google's open-weight **Gemma** model (`gemma-2-2b-it`) to automatically synthesize:
+
 - **A crisp Slack / Microsoft Teams standup update** formatted with emoji bullet points (Yesterday, Today, Blockers).
 - **An itemized, reconciled timesheet** that maps engineering, code review, and QA hours totaling a clean 7.5 to 8-hour workday.
 - **A Sloth Efficiency Score** calculating the exact biological calories and mental energy you preserved by not typing status reports.
@@ -53,7 +55,7 @@ Here is SlothStandup running directly against a live local codebase:
 │ _🦥 Never type in 15 minutes what an open-weight model can synthesize in 3s._│
 ╰────────────── Copy & paste directly into your standup channel ───────────────╯
 
-                        ⏱️ Automated Timesheet Breakdown                         
+                        ⏱️ Automated Timesheet Breakdown                       
 ┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
 ┃ Category               ┃ Task Description                     ┃ Logged Hours ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
@@ -75,6 +77,7 @@ Now close your laptop and take a nap. You've earned it.
 ```
 
 ### Formats Supported:
+
 - `slothstandup --format slack` — Formatted specifically for team chat channels.
 - `slothstandup --format timesheet` — Clean tabular breakdown of billable categories.
 - `slothstandup --format markdown` — Clean GitHub Flavored Markdown for async standup boards.
@@ -86,9 +89,10 @@ Now close your laptop and take a nap. You've earned it.
 
 The code is fully open-source under the MIT License on GitHub:
 
-🔗 **GitHub Repository:** [https://github.com/nitinpandey11223/slothstandup](https://github.com/nitinpandey11223/slothstandup)
+🔗 **GitHub Repository:** [https://github.com/Nl-t-lN/slothstandup](https://github.com/Nl-t-lN/slothstandup)
 
 Key components:
+
 - `slothstandup/git_collector.py`: Local Git AST & diff parser that extracts commit history, insertions, deletions, modified files, and staging status without needing external network calls.
 - `slothstandup/gemma_engine.py`: Structured prompt harness for Google's open-weight Gemma model family (`gemma2:2b` / `gemma2:9b`), with local Ollama integration and resilient heuristic fallbacks.
 - `slothstandup/formatter.py`: Specialized exporters for Slack markdown, standard GFM, and tabular ASCII timesheet schemas.
@@ -125,13 +129,10 @@ Open innovation is not just a nice-to-have for SlothStandup — **it is the only
 1. **Absolute Code Privacy and NDA Protection:**
    When you work on proprietary enterprise code, private repositories, or client projects, **you cannot upload raw commit logs, code diffs, or branch names to a closed third-party cloud API (like OpenAI or Anthropic)**. Doing so violates client Non-Disclosure Agreements (NDAs) and corporate information security policies.
    Because **Gemma is open-weight**, the entire inference loop occurs locally on the developer's laptop. Your code, your company's intellectual property, and your work habits **never leave your machine**.
-   
 2. **Zero Internet Dependency:**
    Ever had to write a standup update while commuting on a subway, sitting on an airplane, or dealing with spotty coffee shop Wi-Fi? Closed APIs fail completely without an internet connection. An open-weight model running locally works seamlessly 35,000 feet in the air with airplane mode engaged.
-
 3. **Zero Marginal Cost:**
    Closed APIs charge per token. A developer running multiple git digests and timesheet summaries a day would rack up recurring API bills. Open weights mean you download Gemma once, and it costs **$0 forever**.
-
 4. **Model Freedom and Portability:**
    Because the interface is open, users can swap models freely: run `gemma2:2b` for maximum battery life on an ultrabook, or `gemma2:9b` on a workstation for deeper architectural reasoning.
 
@@ -140,6 +141,7 @@ Open innovation is not just a nice-to-have for SlothStandup — **it is the only
 ## My Agent Session
 
 This project was conceived, designed, coded, tested, and packaged during an intensive session with an agentic AI assistant. The agent assisted in:
+
 - Rapidly architecting the multi-format pipeline (`git_collector` -> `gemma_engine` -> `formatter` -> `cli`).
 - Designing comprehensive unit test suites for git commit extraction and markdown generation.
 - Tuning the Gemma system prompt to guarantee structured JSON output with realistic timesheet hour allocations.
@@ -149,6 +151,7 @@ This project was conceived, designed, coded, tested, and packaged during an inte
 ## The Lazy Payoff
 
 Let's do the math on the lazy payoff:
+
 - **Time spent by an average developer on standup prep + timesheet logging:** 15 minutes / day = ~1.25 hours / week = **65 hours / year**.
 - **Time spent using SlothStandup:** Run `sloth` in terminal (2 seconds) -> Copy output (1 second) = **3 seconds / day**.
 - **Total time saved per year:** **~64.5 hours of sheer engineering avoidance.**
