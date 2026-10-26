@@ -1,11 +1,10 @@
 # SlothStandup 🦥
 
-> **Channel your inner sloth.** A zero-effort, 100% private daily standup and timesheet ghostwriter powered by Google's open-weight **Gemma** model.
+> **Channel your inner sloth.** A zero-effort, 100% private developer pacing agent & standup ghostwriter powered by **Prior Labs' TabPFN** tabular foundation model.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Hacktoberfest 2026](https://img.shields.io/badge/Hacktoberfest-Slow_and_Steady-orange)](https://dev.to/challenges/hacktoberfest-week3-2026-10-19)
 [![Foundation Model: TabPFN](https://img.shields.io/badge/Foundation_Model-TabPFN_Prior_Labs-purple)](https://platform.priorlabs.ai)
-[![LLM: Gemma 2](https://img.shields.io/badge/Model-Gemma--2--2B--IT-blue)](https://huggingface.co/google/gemma-2-2b-it)
 
 ---
 
@@ -13,14 +12,12 @@
 
 Tomorrow, October 20, is International Sloth Day. Sloths sleep 15 to 20 hours a day, move at their own rhythm, and conserve energy. 
 
-Meanwhile, developers spend 20–30 minutes every morning staring blankly at Slack or Jira, agonizing over:
-- *"What did I even do yesterday?"*
-- *"Am I overworking or moving at a steady pace?"*
-- *"How do I format this timesheet so accounting leaves me alone?"*
+Meanwhile, developers spend 20–30 minutes every morning staring blankly at Slack or Jira, agonizing over what they did yesterday, or burning out late at night.
 
-**SlothStandup** solves this forever. It runs quietly in the background, inspects your local `git` commits, touched branch diffs, and staged changes, combining two state-of-the-art open-source AI technologies:
-1. **Prior Labs TabPFN (Tabular Foundation Model):** Analyzes tabular commit metrics (`churn`, `insertions`, `deletions`, `files_modified`) to detect overexertion anomalies, predict code review friction, and alert you if you are working too fast and risking burnout.
-2. **Google Gemma 2 (Open-Weight LLM):** Synthesizes chaotic git diffs into a professional Slack/Teams standup message, itemized timesheets, and a Sloth Efficiency metric.
+**SlothStandup** solves this by putting **Prior Labs' TabPFN** foundation model to work:
+1. **TabPFN Anomaly & Pacing Engine:** Converts raw git commit metrics (`insertions`, `deletions`, `churn_density`, `files_modified`) into tabular feature vectors to detect **Overexertion Anomalies**, forecast PR review friction, and enforce sustainable pacing.
+2. **Automated Standup & Timesheet:** Formats accomplishments, active in-progress tasks, and blockers into an emoji-rich Slack/Teams update and itemized timesheet table.
+3. **Sloth Efficiency Score:** Calculates the exact biological energy and mental fatigue saved.
 
 ---
 

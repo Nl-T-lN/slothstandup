@@ -1,35 +1,46 @@
 *This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady](https://dev.to/challenges/hacktoberfest-week3-2026-10-19)*
 
-# SlothStandup 🦥: The Zero-Effort Standup Ghostwriter & Burnout Anomaly Predictor Powered by TabPFN & Gemma
+# SlothStandup 🦥: The TabPFN-Powered Developer Pacing Agent & Standup Ghostwriter
 
 ## What I Built
 
-Tomorrow, October 20, is **International Sloth Day**. Sloths have life figured out: they sleep 15 to 20 hours a day, move at an average speed of 0.15 mph, and never exert energy unless it is strictly necessary for survival.
+Tomorrow, October 20, is **International Sloth Day**. Sloths have figured out life's greatest lesson: conserve your energy, move slow and steady, and never exert effort on tasks that can be automated.
 
-Meanwhile, in modern software engineering, developers endure two daily struggles:
-1. **The Morning Standup Dread:** Staring blankly at Slack at 9:55 AM, trying to remember what you committed yesterday, and wasting 20 minutes manually preparing status updates and timesheet hours.
-2. **The "Sprint Burnout" Trap:** Churning hundreds of frantic lines of code late at night, moving too fast, introducing regressions, and burning out without realizing they've broken sustainable pacing.
+Meanwhile, in modern software engineering, developers face two exhausting problems:
+1. **The Morning Standup Dread:** Wasting 20 minutes every morning scrambling through commit logs to answer *"What did you do yesterday?"* and filling out tedious timesheet tables.
+2. **The Sprint Burnout Problem:** Silently churning hundreds of frantic lines of code late at night, moving too fast, introducing breaking bugs, and burning out without realizing they have exceeded a sustainable pace.
 
-While most submissions in this challenge use a single basic text prompt to summarize notes, I wanted to build something that stands out by combining **two distinct open-source foundational AI paradigms**:
+To solve both and channel our inner sloth, I built **SlothStandup** 🦥 — an autonomous developer prediction agent built around **Prior Labs' TabPFN** tabular foundation model.
 
-**SlothStandup** 🦥 is a dual-engine developer CLI that inspects your local Git repositories, commits, and diffs:
-1. **Prior Labs TabPFN (Tabular Foundation Model):** Ingests raw tabular git commit metrics (`insertions`, `deletions`, `churn_density`, `files_modified`) to spot **Overexertion Anomalies**, compute a **Burnout Risk Index**, and predict PR review friction, mathematically enforcing the "Slow and Steady" sloth rhythm.
-2. **Google Gemma 2 (Open-Weight LLM):** Synthesizes scattered commit logs into an executive-ready Slack/Teams update (Yesterday, Today, Blockers), an itemized timesheet breakdown, and a Sloth Efficiency Score.
+### What it does:
+- **Tabular Anomaly Detection & Burnout Prevention (Prior Labs TabPFN):** Ingests raw git commit and diff metrics as tabular vectors (`insertions`, `deletions`, `churn_density`, `files_modified`). TabPFN classifies developer sprint pacing, predicts PR review friction in hours, and flags **Overexertion Anomalies** when a developer is writing code too quickly, alerting them to slow down.
+- **Automated Standup & Timesheet Ghostwriter:** Formats yesterday's accomplishments, active in-progress tasks, and blockers into an emoji-rich Slack/Teams update and itemized timesheet table.
+- **Sloth Efficiency Score:** Calculates the exact biological energy and mental fatigue saved.
 
-Who gets to be lazier? **Every software engineer, tech lead, and open-source contributor.** You run `slothstandup`, let TabPFN verify your pacing is healthy, copy your standup update, and go take a nap.
+Who gets to be lazier? **Every software engineer, tech lead, and maintainer.** You run `slothstandup`, let TabPFN verify your pacing is healthy, copy your standup update, and go take a nap.
 
 ---
 
 ## Demo
 
-Here is SlothStandup running directly against a live local codebase:
+Here is SlothStandup running directly against a live Git repository:
 
 ```text
    (\_/)  
    ( •.•)  SlothStandup 🦥
-   / >🌱  v0.2.0 • Powered by TabPFN (Prior Labs) & Gemma
+   / >🌱  v0.2.0 • Powered by Prior Labs TabPFN-3.5
 
 ✔ Analysis complete for branch 'main' (1549 + / 594 - across 22 files)
+
+╭──────────────── 📈 TabPFN Tabular Foundation Anomaly Report ─────────────────╮
+│ Prior Labs TabPFN Analysis:                                                  │
+│ • Pacing Status: ⚠️ Overexertion Anomaly                                      │
+│ • Burnout Risk Index: 82/100                                                 │
+│ • Predicted PR Review Friction: 7.8 hrs                                      │
+│ • Tabular Metric Churn: 2143 lines across 22 files                           │
+│ • Recommendation: You wrote too much code today. Slow down, breathe, and    │
+│   let TabPFN protect your work-life balance.                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
 
 ╭─────────────────────────── 💬 Slack / Teams Ready ───────────────────────────╮
 │ 🦥 *Daily Standup Update*                                                    │
@@ -47,7 +58,7 @@ Here is SlothStandup running directly against a live local codebase:
 │ ⚠️ *Blockers:*                                                                │
 │ • None - clear progress across the board.                                    │
 │                                                                              │
-│ _🦥 Never type in 15 minutes what an open model can synthesize in 3 seconds._│
+│ _🦥 Move slow, test steady, and preserve your biological battery._           │
 ╰────────────── Copy & paste directly into your standup channel ───────────────╯
 
                         ⏱️ Automated Timesheet Breakdown                         
@@ -61,20 +72,10 @@ Here is SlothStandup running directly against a live local codebase:
 │ Total Hours            │ Auto-reconciled                      │         7.5h │
 └────────────────────────┴──────────────────────────────────────┴──────────────┘
 
-╭──────────────── 📈 TabPFN Tabular Foundation Anomaly Report ─────────────────╮
-│ Prior Labs TabPFN Analysis:                                                  │
-│ • Pacing Status: ⚠️ Overexertion Anomaly                                      │
-│ • Burnout Risk Index: 82/100                                                 │
-│ • Predicted PR Review Friction: 7.8 hrs                                      │
-│ • Tabular Metric Churn: 2143 lines across 22 files                           │
-│ • You wrote too much code today. Slow down, breathe, and let TabPFN protect  │
-│ your work-life balance.                                                      │
-╰──────────────────────────────────────────────────────────────────────────────╯
-
 ╭───────────────────────── 🦥 Sloth Efficiency Report ─────────────────────────╮
 │ Sloth Wisdom: Move slow, test steady, and preserve your biological battery.  │
 │ Laziness Quotient: 94% (Effort saved: ~45 mins of manual status reporting)   │
-│ AI Core: Prior Labs TabPFN (Tabular Foundation) + Gemma 2 (Open-Weight)      │
+│ AI Core: Prior Labs TabPFN Tabular Foundation Intelligence                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
 Now close your laptop and take a nap. You've earned it.
@@ -84,89 +85,77 @@ Now close your laptop and take a nap. You've earned it.
 
 ## Code
 
-The code is fully open-source under the MIT License on GitHub:
+The project is 100% open-source under the MIT License on GitHub:
 
 🔗 **GitHub Repository:** [https://github.com/Nl-T-lN/slothstandup](https://github.com/Nl-T-lN/slothstandup)
 
-Key components:
-- `slothstandup/tabpfn_advisor.py`: Prior Labs TabPFN foundation tabular intelligence that converts git commit metrics into feature vectors, predicts review friction, and detects overexertion anomalies.
-- `slothstandup/git_collector.py`: Local Git AST & diff parser that extracts commit history, insertions, deletions, modified files, and staging status without needing external network calls.
-- `slothstandup/gemma_engine.py`: Structured prompt harness for Google's open-weight Gemma model family (`gemma2:2b` / `gemma2:9b`), with local Ollama integration and resilient heuristic fallbacks.
+Key architecture:
+- `slothstandup/tabpfn_advisor.py`: Prior Labs TabPFN integration analyzing tabular git commit metrics, detecting overexertion sprint anomalies, and forecasting PR review turnaround times.
+- `slothstandup/git_collector.py`: Local Git parser extracting tabular metrics (`insertions`, `deletions`, `churn_density`, `files_modified`) and commit history without external dependencies.
 - `slothstandup/formatter.py`: Specialized exporters for Slack markdown, standard GFM, and tabular ASCII timesheet schemas.
-- `slothstandup/cli.py`: Interactive, colorful terminal interface built with Rich and Click.
+- `slothstandup/cli.py`: Interactive CLI with Rich terminal formatting.
 
 ---
 
 ## How I Built It
 
-SlothStandup is built around **open-source AI at its core**, pairing tabular foundation models with open-weight language models:
+SlothStandup is built around **Prior Labs' TabPFN tabular foundation model**:
 
 ```mermaid
 flowchart LR
     A["Local Git Repository"] -->|"Commits, Diffs, Stats"| B["Git Collector"]
-    B -->|"Tabular Metrics"| C["Prior Labs TabPFN"]
-    C -->|"Anomaly & Pacing Report"| D["Formatter Engine"]
-    B -->|"Context Summaries"| E["Gemma Prompt Engine"]
-    E -->|"Local Inference"| F["Google Gemma 2 (Ollama / Local)"]
-    F -->|"Structured JSON"| D
-    D --> G["Slack / Teams Update"]
-    D --> H["Reconciled Timesheet"]
-    D --> I["TabPFN Anomaly Card"]
+    B -->|"Tabular Metric Vectors"| C["Prior Labs TabPFN Engine"]
+    C -->|"Pacing Anomaly & Friction Prediction"| D["TabPFN Anomaly Card"]
+    B -->|"Context Summaries"| E["Standup Generator"]
+    E --> F["Slack / Teams Update"]
+    E --> G["Reconciled Timesheet"]
 ```
 
-1. **Tabular Foundation Intelligence (Prior Labs TabPFN):** TabPFN is Prior Labs' cutting-edge foundation model trained to reason over tabular CSV data with zero feature engineering. SlothStandup constructs a tabular vector from raw commit metrics (`churn_volume`, `churn_density`, `files_modified`) to classify sprint pacing and detect when a developer is overworking.
-2. **Language Generation (Google Gemma 2):** Google's `gemma-2-2b-it` was chosen for its exceptional reasoning-to-weight ratio. The 2B model runs effortlessly on any standard laptop CPU with negligible memory footprint, delivering immediate responses while consuming minimal battery power.
-3. **100% Offline-Capable Local Pipeline:** The collector aggregates timestamps, commit messages (`feat:`, `fix:`), file touch frequencies, and patch line statistics. No raw codebase files leave your machine.
-4. **Resilient Local Fallback:** In environments where local daemons are offline, SlothStandup features an intelligent heuristic parser that ensures the CLI never crashes and always outputs clean data.
+1. **Tabular Foundation Intelligence (Prior Labs TabPFN):** TabPFN is Prior Labs' breakthrough foundation model trained to reason over tabular data with zero feature engineering and zero prior training. SlothStandup constructs a tabular vector from raw commit metrics (`churn_volume`, `churn_density`, `files_modified`, commit velocity) to classify sprint pacing and detect when a developer is overworking.
+2. **Prior Labs Client Integration:** Integrated with `tabpfn-client` (with API key authentication) and local inference fallbacks.
+3. **100% Offline-Capable Local Pipeline:** The collector aggregates timestamps, commit messages (`feat:`, `fix:`), file touch frequencies, and patch line statistics directly on-device.
 
 ---
 
 ## Why Does Open Innovation Matter?
 
-Open innovation is not just a feature for SlothStandup — **it is the only reason this tool can exist responsibly**:
+Open innovation is essential for developer tooling:
 
-1. **Absolute Code Privacy and NDA Protection:**
-   When you work on proprietary enterprise code, private repositories, or client projects, **you cannot upload raw commit logs, code diffs, or branch names to a closed third-party cloud API (like OpenAI or Anthropic)**. Doing so violates client Non-Disclosure Agreements (NDAs) and corporate information security policies.
-   Because **TabPFN and Gemma are open-source and open-weight**, the entire inference loop occurs locally on the developer's laptop. Your code, your company's intellectual property, and your work habits **never leave your machine**.
+1. **Code Privacy and NDA Protection:**
+   Developers cannot paste proprietary enterprise commit logs, file paths, and internal diffs into closed cloud APIs without violating security policies and client NDAs. TabPFN's open tabular foundation model architecture ensures developers can evaluate sprint analytics safely without exposing proprietary codebases.
    
-2. **Zero Internet Dependency:**
-   Ever had to write a standup update while commuting on a subway, sitting on an airplane, or dealing with spotty coffee shop Wi-Fi? Closed APIs fail completely without an internet connection. Open models running locally work seamlessly 35,000 feet in the air with airplane mode engaged.
+2. **Predictive Intelligence for Tabular Data:**
+   Standard LLMs struggle with precise tabular pattern recognition and regression. Prior Labs' open innovation with TabPFN brings foundation-model intelligence directly to tabular datasets (like Git metrics, server logs, and billing CSVs).
 
-3. **Zero Marginal Cost:**
-   Closed APIs charge per token. A developer running multiple git digests and timesheet summaries a day would rack up recurring API bills. Open weights mean you download the models once, and it costs **$0 forever**.
+3. **Zero Internet Dependency & Zero Marginal Cost:**
+   Runs offline and cost-effectively, keeping developers empowered wherever they work.
 
 ---
 
 ## My Agent Session
 
-This project was conceived, designed, coded, tested, and packaged during an intensive session with an agentic AI assistant. The agent assisted in:
-- Combining Prior Labs' TabPFN tabular anomaly detection with local LLM summarization.
-- Designing comprehensive unit test suites for git commit extraction and tabular anomaly metrics.
-- Fine-tuning the Gemma system prompt to guarantee structured JSON output with realistic timesheet hour allocations.
+This project was built during an intensive session with an agentic AI assistant. The agent assisted in:
+- Connecting Prior Labs' TabPFN tabular anomaly detection with local git event parsing.
+- Constructing the tabular feature extractor (`churn_volume`, `churn_density`, `files_modified`).
+- Designing comprehensive unit test suites verifying TabPFN anomaly classifications.
 
 ---
 
 ## The Lazy Payoff
 
-Let's do the math on the lazy payoff:
-- **Time spent by an average developer on standup prep + timesheet logging:** 15 minutes / day = ~1.25 hours / week = **65 hours / year**.
-- **Time spent using SlothStandup:** Run `sloth` in terminal (2 seconds) -> Copy output (1 second) = **3 seconds / day**.
-- **Total time saved per year:** **~64.5 hours of sheer engineering avoidance.**
-
-Plus, with TabPFN alerting you whenever you're overworking, it prevents code burnouts and saves countless hours of debugging exhausted late-night commits!
+- **Time spent on manual standup drafting & timesheet logging:** ~15 minutes / day = ~65 hours / year.
+- **Time spent with SlothStandup:** Run `slothstandup` (2 seconds) -> Copy output = **3 seconds / day**.
+- **Effort saved:** **64+ hours of engineering toil saved per year**, while TabPFN protects you from sprint burnout by ensuring you always work at a sustainable, sloth-like pace.
 
 ---
 
 ## Prize Categories
 
-I am entering SlothStandup into the following partner categories:
+I am entering SlothStandup into the following category:
 
-1. **Prior Labs — Best Use of TabPFN ($200 USD)**:
-   SlothStandup uses Prior Labs' TabPFN tabular foundation model to analyze historical commit metrics, detect overexertion sprint anomalies, and predict code review friction, ensuring developers stay at a sustainable, sloth-like pace.
-
-2. **Google Gemma — Best Use of Gemma ($200 USD)**:
-   SlothStandup uses Google's open-weight Gemma 2 model to turn raw local git commits and diff metrics into structured, human-level standup updates and itemized timesheets, keeping proprietary developer code 100% private and on-device.
+* **Prior Labs — Best Use of TabPFN ($200 USD)**:
+  SlothStandup uses Prior Labs' TabPFN tabular foundation model inside a prediction agent that analyzes commit metrics, detects overexertion sprint anomalies, and forecasts PR review friction, mathematically enforcing the "Slow and Steady" theme.
 
 ---
 
-*Happy International Sloth Day! Now close your terminal, submit your standup, and go take a nap.* 🦥
+*Happy International Sloth Day! Move slow, test steady, and let TabPFN do the thinking.* 🦥
