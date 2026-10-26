@@ -16,24 +16,7 @@ env/
 *.swp
 *.swo
 
-# AI, Agentic workflows & Vibe-coding artifacts
+# workflows
 work.md
 work.*
-prompts/
-*.prompt
-*.prompt.md
-.cursor/
-.cursorrules
-.windsurf/
-.windsurfrules
-.gemini/
-.claude/
-.clauderules
-.antigravity/
-.ai/
-agent_sessions/
-transcripts/
-transcript*.jsonl
-scratch/
-brain/
-*.scratch.*
+

@@ -7,6 +7,7 @@ from rich.markdown import Markdown
 
 from .git_collector import GitCollector
 from .gemma_engine import GemmaEngine
+from .tabpfn_advisor import TabPFNAdvisor
 from .formatter import StandupFormatter
 
 console = Console()
@@ -14,7 +15,7 @@ console = Console()
 SLOTH_BANNER = r"""[bold green]
    (\_/)  
    ( •.•)  [yellow]SlothStandup 🦥[/yellow]
-   / >🌱  [dim]v0.1.0 • Powered by Gemma (Open-Weight)[/dim]
+   / >🌱  [dim]v0.2.0 • Powered by TabPFN (Prior Labs) & Gemma[/dim]
 [/bold green]"""
 
 
@@ -64,6 +65,25 @@ def main(repo: str, since: str, author: str, output_format: str, model: str):
         timesheet_table.add_row("[bold]Total Hours[/bold]", "[dim]Auto-reconciled[/dim]", f"[bold green]{total_hrs:.1f}h[/bold green]")
         console.print(timesheet_table)
 
+    # Render TabPFN Pacing & Anomaly Report
+    if output_format in ("all", "timesheet", "markdown"):
+        tabpfn = TabPFNAdvisor()
+        pacing = tabpfn.analyze_pacing(activity)
+        
+        anomaly_style = "bold red" if pacing["anomaly_detected"] else "bold green"
+        tabpfn_panel = f"""[bold magenta]Prior Labs TabPFN Analysis:[/bold magenta]
+• [bold white]Pacing Status:[/bold white] [{anomaly_style}]{pacing['pacing_status']}[/{anomaly_style}]
+• [bold white]Burnout Risk Index:[/bold white] [bold yellow]{pacing['burnout_risk']}/100[/bold yellow]
+• [bold white]Predicted PR Review Friction:[/bold white] [cyan]{pacing['predicted_review_hours']} hrs[/cyan]
+• [bold white]Tabular Metric Churn:[/bold white] [dim]{pacing['features']['churn_volume']} lines across {pacing['features']['files_modified']} files[/dim]
+• [italic]{pacing['recommendation']}[/italic]"""
+
+        console.print(Panel(
+            tabpfn_panel,
+            title="[bold cyan]📈 TabPFN Tabular Foundation Anomaly Report[/bold cyan]",
+            border_style="cyan"
+        ))
+
     # Render Markdown / Sloth Score
     if output_format in ("all", "markdown"):
         laziness = result.get("laziness_score", 95)
@@ -71,7 +91,7 @@ def main(repo: str, since: str, author: str, output_format: str, model: str):
         
         info_panel = f"""[bold yellow]Sloth Wisdom:[/bold yellow] [italic]{quote}[/italic]
 [bold green]Laziness Quotient:[/bold green] [bold]{laziness}%[/bold] [dim](Effort saved: ~45 mins of manual status reporting)[/dim]
-[bold cyan]Architecture:[/bold cyan] [dim]Local Gemma open weights • 100% private on-device • $0 API cost[/dim]"""
+[bold cyan]AI Core:[/bold cyan] [dim]Prior Labs TabPFN (Tabular Foundation) + Gemma 2 (Open-Weight)[/dim]"""
         
         console.print(Panel(
             info_panel,
