@@ -4,7 +4,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Hacktoberfest 2026](https://img.shields.io/badge/Hacktoberfest-Slow_and_Steady-orange)](https://dev.to/challenges/hacktoberfest-week3-2026-10-19)
-[![Model](https://img.shields.io/badge/Model-Gemma--2--2B--IT-blue)](https://huggingface.co/google/gemma-2-2b-it)
+[![Foundation Model: TabPFN](https://img.shields.io/badge/Foundation_Model-TabPFN_Prior_Labs-purple)](https://platform.priorlabs.ai)
+[![LLM: Gemma 2](https://img.shields.io/badge/Model-Gemma--2--2B--IT-blue)](https://huggingface.co/google/gemma-2-2b-it)
 
 ---
 
@@ -14,13 +15,12 @@ Tomorrow, October 20, is International Sloth Day. Sloths sleep 15 to 20 hours a 
 
 Meanwhile, developers spend 20–30 minutes every morning staring blankly at Slack or Jira, agonizing over:
 - *"What did I even do yesterday?"*
-- *"How do I explain that I spent 4 hours hunting a missing semicolon?"*
+- *"Am I overworking or moving at a steady pace?"*
 - *"How do I format this timesheet so accounting leaves me alone?"*
 
-**SlothStandup** solves this forever. It runs quietly in the background, inspects your local `git` commits, touched branch diffs, and staged changes, and invokes **Gemma** (Google's open-weight model) locally on your device to draft:
-1. **A crisp Slack / Teams standup update** with structured yesterday/today/blockers bullet points.
-2. **An itemized timesheet breakdown** reconciling 7–8 hours of realistic engineering effort.
-3. **A Sloth Efficiency Score** celebrating the exact biological energy you conserved by not typing status reports.
+**SlothStandup** solves this forever. It runs quietly in the background, inspects your local `git` commits, touched branch diffs, and staged changes, combining two state-of-the-art open-source AI technologies:
+1. **Prior Labs TabPFN (Tabular Foundation Model):** Analyzes tabular commit metrics (`churn`, `insertions`, `deletions`, `files_modified`) to detect overexertion anomalies, predict code review friction, and alert you if you are working too fast and risking burnout.
+2. **Google Gemma 2 (Open-Weight LLM):** Synthesizes chaotic git diffs into a professional Slack/Teams standup message, itemized timesheets, and a Sloth Efficiency metric.
 
 ---
 
